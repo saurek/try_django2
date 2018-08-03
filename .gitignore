@@ -7,3 +7,6 @@ bin/
 lib/
 
 pip-selfcheck.json
+
+
+*sqlite3
