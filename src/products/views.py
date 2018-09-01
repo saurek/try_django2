@@ -4,15 +4,23 @@ from .forms import ProductForm
 
 
 def product_create_view(request):
-    form = ProductForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = ProductForm()
-
-    context = {
-        'form': form
-    }
+    if request.method == 'POST':
+        my_newtitle = request.POST.get('title')
+        print(my_newtitle)
+    context = {}
     return render(request, "products/product_create.html", context)
+
+
+# def product_create_view(request):
+#     form = ProductForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         form = ProductForm()
+#
+#     context = {
+#         'form': form
+#     }
+#     return render(request, "products/product_create.html", context)
 
 
 def product_detail_view(request):
